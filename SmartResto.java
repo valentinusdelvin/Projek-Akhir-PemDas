@@ -1,5 +1,3 @@
-package ProjekAkhir;
-
 import java.util.*;
 public class SmartResto {
     static int biaya = 0;

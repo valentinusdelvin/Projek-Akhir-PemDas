@@ -1,3 +1,5 @@
+package ProjekAkhir;
+
 import java.util.*;
 public class SmartResto {
     static int biaya = 0;
@@ -34,6 +36,7 @@ public class SmartResto {
                         break;
                     case 3:
                         minuman();
+                        break;
                     case 4:
                         pembayaran();
                         break;
@@ -95,23 +98,29 @@ public class SmartResto {
             System.out.println(jenisMinum[i]);
         }
         while (true) {
-            System.out.print("Masukkan jenis minuman yang akan dipilih, tekan 0 untuk kembali ke halaman awal\n");
-            int pilihan = braws.nextInt();
-            if (pilihan == 0){
-                break;
-            }
-            if (pilihan>0 && pilihan<=jenisMinum.length){
-                switch (pilihan) {
-                    case 1:
-                        hotSeries();
-                        break;
-                    case 2:
-                        iceSeries();
-                        break;
+            try {
+                System.out.print("Masukkan jenis minuman yang akan dipilih, tekan 0 untuk kembali ke halaman awal\n");
+                int pilihan = braws.nextInt();
+                if (pilihan == 0){
+                    break;
+                }
+                if (pilihan>0 && pilihan<=jenisMinum.length){
+                    switch (pilihan) {
+                        case 1:
+                            hotSeries();
+                            break;
+                        case 2:
+                            iceSeries();
+                            break;
+                    }
+                }
+                else {
+                    System.out.println("Pilihan tidak ada");
                 }
             }
-            else {
-                System.out.println("Pilihan tidak ada");
+            catch (InputMismatchException e){
+                System.out.println("Pilihan tidak valid");
+                braws.nextLine();
             }
         }
         homePage();
@@ -138,18 +147,24 @@ public class SmartResto {
             System.out.println(hotDrink[i]);
         }
         while (true) {
-            System.out.print("masukkan pilihan minuman yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
-            int pilihan = braws.nextInt();
-            if (pilihan == 0){
-                break;
+            try {
+                System.out.print("masukkan pilihan minuman yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
+                int pilihan = braws.nextInt();
+                if (pilihan == 0){
+                    break;
+                }
+                if (pilihan>0 && pilihan<=hotDrink.length){
+                    System.out.println("masukkan jumlahya: ");
+                    int jumlah = braws.nextInt();
+                    biaya += (hotDrinkPrice[pilihan-1]*jumlah);
+                }
+                else {
+                    System.out.println("Pilihan tidak ada");
+                }
             }
-            if (pilihan>0 && pilihan<=hotDrink.length){
-                System.out.println("masukkan jumlahya: ");
-                int jumlah = braws.nextInt();
-                biaya += (hotDrinkPrice[pilihan-1]*jumlah);
-            }
-            else {
-                System.out.println("Pilihan tidak ada");
+            catch (InputMismatchException e){
+                System.out.println("Pilihan tidak valid");
+                braws.nextLine();
             }
         }
         minuman();
@@ -176,18 +191,24 @@ public class SmartResto {
             System.out.println(iceSeries[i]);
         }
         while (true) {
-            System.out.print("masukkan pilihan minuman yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
-            int pilihan = braws.nextInt();
-            if (pilihan == 0){
-                break;
+            try {
+                System.out.print("masukkan pilihan minuman yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
+                int pilihan = braws.nextInt();
+                if (pilihan == 0){
+                    break;
+                }
+                if (pilihan>0 && pilihan<=iceSeries.length){
+                    System.out.println("masukkan jumlahya: ");
+                    int jumlah = braws.nextInt();
+                    biaya += (iceSeriesPrice[pilihan-1]*jumlah);
+                }
+                else {
+                    System.out.println("Pilihan tidak ada");
+                }
             }
-            if (pilihan>0 && pilihan<=iceSeries.length){
-                System.out.println("masukkan jumlahya: ");
-                int jumlah = braws.nextInt();
-                biaya += (iceSeriesPrice[pilihan-1]*jumlah);
-            }
-            else {
-                System.out.println("Pilihan tidak ada");
+            catch (InputMismatchException e){
+                System.out.println("Pilihan tidak valid");
+                braws.nextLine();
             }
         }
         minuman();
@@ -204,26 +225,32 @@ public class SmartResto {
             System.out.println(jenisMakan[i]);
         }
         while (true) {
-            System.out.print("masukkan jenis makanan yang akan dipilih, tekan 0 untuk kembali ke halaman awal\n");
-            int pilihan = braws.nextInt();
-            if (pilihan == 0){
-                break;
-            }
-            if (pilihan>0 && pilihan<=jenisMakan.length){
-                switch (pilihan) {
-                    case 1:
-                        appetizer();
-                        break;
-                    case 2:
-                        mainCourse();
-                        break;
-                    case 3:
-                        dessert();
-                        break;
+            try {
+                System.out.print("masukkan jenis makanan yang akan dipilih, tekan 0 untuk kembali ke halaman awal\n");
+                int pilihan = braws.nextInt();
+                if (pilihan == 0){
+                    break;
+                }
+                if (pilihan>0 && pilihan<=jenisMakan.length){
+                    switch (pilihan) {
+                        case 1:
+                            appetizer();
+                            break;
+                        case 2:
+                            mainCourse();
+                            break;
+                        case 3:
+                            dessert();
+                            break;
+                    }
+                }
+                else {
+                    System.out.println("Pilihan tidak ada");
                 }
             }
-            else {
-                System.out.println("Pilihan tidak ada");
+            catch (InputMismatchException e){
+                System.out.println("Pilihan tidak valid");
+                braws.nextLine();
             }
         }
         homePage();
@@ -246,18 +273,24 @@ public class SmartResto {
             System.out.println(foodapps[i]);
         }
         while (true) {
-            System.out.print("masukkan pilihan makanan yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
-            int pilihan = braws.nextInt();
-            if (pilihan == 0){
-                break;
+            try {
+                System.out.print("masukkan pilihan makanan yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
+                int pilihan = braws.nextInt();
+                if (pilihan == 0){
+                    break;
+                }
+                if (pilihan>0 && pilihan<=foodapps.length){
+                    System.out.println("masukkan jumlahya: ");
+                    int jumlah = braws.nextInt();
+                    biaya += (appsPrice[pilihan-1]*jumlah);
+                }
+                else {
+                    System.out.println("Pilihan tidak ada");
+                }
             }
-            if (pilihan>0 && pilihan<=foodapps.length){
-                System.out.println("masukkan jumlahya: ");
-                int jumlah = braws.nextInt();
-                biaya += (appsPrice[pilihan-1]*jumlah);
-            }
-            else {
-                System.out.println("Pilihan tidak ada");
+            catch (InputMismatchException e){
+                System.out.println(" Pilihan tidak valid");
+                braws.nextLine();
             }
         }
         makanan();
@@ -284,18 +317,24 @@ public class SmartResto {
             System.out.println(foodMain[i]);
         };
         while (true) {
-            System.out.print("masukkan pilihan makanan yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
-            int pilihan = braws.nextInt();
-            if (pilihan == 0){
-                break;
+            try {
+                System.out.print("masukkan pilihan makanan yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
+                int pilihan = braws.nextInt();
+                if (pilihan == 0){
+                    break;
+                }
+                if (pilihan>0 && pilihan<=foodMain.length){
+                    System.out.println("masukkan jumlahya: ");
+                    int jumlah = braws.nextInt();
+                    biaya += (mainPrice[pilihan-1]*jumlah);
+                }
+                else {
+                    System.out.println("Pilihan tidak ada");
+                }
             }
-            if (pilihan>0 && pilihan<=foodMain.length){
-                System.out.println("masukkan jumlahya: ");
-                int jumlah = braws.nextInt();
-                biaya += (mainPrice[pilihan-1]*jumlah);
-            }
-            else {
-                System.out.println("Pilihan tidak ada");
+            catch (InputMismatchException e){
+                System.out.println("Pilihan tidak valid");
+                braws.nextLine();
             }
         }
         makanan();
@@ -318,18 +357,24 @@ public class SmartResto {
             System.out.println(foodDessert[i]);
         };
         while (true) {
-            System.out.print("masukkan pilihan makanan yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
-            int pilihan = braws.nextInt();
-            if (pilihan == 0){
-                break;
+            try {
+                System.out.print("masukkan pilihan makanan yang akan dipilih, tekan 0 untuk kembali ke halaman sebelumnya\n");
+                int pilihan = braws.nextInt();
+                if (pilihan == 0){
+                    break;
+                }
+                if (pilihan>0 && pilihan<=foodDessert.length){
+                    System.out.println("masukkan jumlahya: ");
+                    int jumlah = braws.nextInt();
+                    biaya += (dessertPrice[pilihan-1]*jumlah);
+                }
+                else {
+                    System.out.println("Pilihan tidak ada");
+                }
             }
-            if (pilihan>0 && pilihan<=foodDessert.length){
-                System.out.println("masukkan jumlahya: ");
-                int jumlah = braws.nextInt();
-                biaya += (dessertPrice[pilihan-1]*jumlah);
-            }
-            else {
-                System.out.println("Pilihan tidak ada");
+            catch (InputMismatchException e){
+                System.out.println("Pilihan tidak valid");
+                braws.nextLine();
             }
         }
         makanan();
